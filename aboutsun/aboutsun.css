@@ -1,0 +1,22 @@
+#sun {
+    width: 225px;
+    height: 225px;
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    top: 120px;
+    left: 50px;
+}
+  
+  #sun-face {
+    width: 88px;
+    height: 30px;
+    background-image: url(sunface.svg);
+    position: absolute;
+}
+  
+#sun.day {
+    background-image: url(sunbackground.svg);
+}
+
+
