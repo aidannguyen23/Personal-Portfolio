@@ -1,4 +1,4 @@
-# Aidan Nguyen's Portfolio
+# Personal Portfolio
 
 Hello! 👋 I'm Aidan Nguyen, and this repository contains the code for my personal portfolio website.
 
