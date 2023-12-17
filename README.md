@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-# Aidan Nguyen - Portfolio
-
-This repository contains the HTML, CSS, and JavaScript code for my personal portfolio.
-
-
-=======
 # Personal Portfolio
 
 Hello! 👋 I'm Aidan Nguyen, and this repository contains the code for my personal portfolio website.
