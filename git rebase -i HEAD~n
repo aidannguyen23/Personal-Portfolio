@@ -1,0 +1,50 @@
+[33mcommit d53aeaf4bbd393f242b92eab94eb53912850efb9[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: 5661080 2fecb47
+Author: unknown <aidananh@gmail.com>
+Date:   Sun Dec 17 15:28:08 2023 -0800
+
+    Merge branch 'main' of https://github.com/aidannguyen23/Personal-Portfolio
+
+[33mcommit 566108060524f2f1f7c0a150d74de3e1e2f0ba8d[m
+Merge: 67dd2ea 025aead
+Author: unknown <aidananh@gmail.com>
+Date:   Sun Dec 17 14:55:38 2023 -0800
+
+    Updated styles.css
+
+[33mcommit 2fecb471428cadbbd523fd7cc0d0553328c1ab5c[m
+Merge: 67dd2ea 025aead
+Author: unknown <aidananh@gmail.com>
+Date:   Sun Dec 17 14:55:38 2023 -0800
+
+    Merge branch 'main' of https://github.com/aidannguyen23/Personal-Portfolio
+
+[33mcommit 67dd2eae105b0dc9113f37de7851fa87f5ee38e6[m
+Author: unknown <aidananh@gmail.com>
+Date:   Sun Dec 17 14:55:00 2023 -0800
+
+    Updated index.html
+
+[33mcommit 025aead5ca7239d0dae5a1781b9fa1c57237fff6[m
+Author: Aidan Nguyen <34725584+aidannguyen23@users.noreply.github.com>
+Date:   Fri Dec 15 19:57:20 2023 -0800
+
+    Create README.md
+
+[33mcommit 4f96ff1c84c51b5f5579505301a1cf38cafa5ec5[m
+Author: Aidan Nguyen <34725584+aidannguyen23@users.noreply.github.com>
+Date:   Fri Dec 15 19:56:40 2023 -0800
+
+    Create README.md
+
+[33mcommit 1f3e0397fc388c9e722dd343f447ccca5a5b49c0[m
+Author: unknown <aidananh@gmail.com>
+Date:   Fri Dec 15 19:53:57 2023 -0800
+
+    Added icon
+
+[33mcommit b472979ccb545bbba684c65b4eef9b5d918521bc[m
+Author: unknown <aidananh@gmail.com>
+Date:   Fri Dec 15 17:41:22 2023 -0800
+
+    First commit
