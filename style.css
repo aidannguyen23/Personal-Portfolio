@@ -287,6 +287,10 @@ section {
 
 /* ABOUT SECTION */
 
+.text-container {
+    width: 50%;
+}
+
 #about {
     position: relative;
 }
@@ -354,6 +358,7 @@ section {
     font-weight: 600;
     font-size: 1.75rem;
     margin-bottom: 1rem;
+    margin-right: 1rem;
     font-family: 'Sometype Mono'; 
     font-weight: 800 !important;
 }
