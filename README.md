@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-# Aidan Nguyen - Portfolio
-
-This repository contains the HTML, CSS, and JavaScript code for my personal portfolio.
-
-
-=======
 # Personal Portfolio
 
 Hello! 👋 I'm Aidan Nguyen, and this repository contains the code for my personal portfolio website.
@@ -46,5 +39,4 @@ You can reach out to me via:
 
 - Email: [aidannguyen27@ucla.edu](mailto:aidannguyen27@ucla.edu)
 - LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/nguyenaidan/)
->>>>>>> c2d55f858db9206a9797606f64a7b46ada127e3a
 
