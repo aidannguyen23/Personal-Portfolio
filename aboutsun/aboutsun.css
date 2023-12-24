@@ -11,6 +11,8 @@
   #sun-face {
     width: 88px;
     height: 30px;
+    top: 120px;
+    left: 50px;
     background-image: url(sunface.svg);
     position: absolute;
 }
