@@ -1,6 +1,8 @@
 # Personal Portfolio
 
-Hello! 👋 I'm Aidan Nguyen, and this repository contains the code for my personal portfolio website.
+Hello! 👋 I'm Aidan Nguyen, and this repository contains the code for my personal portfolio website that you can visit at:
+
+https://aidannguyen23.github.io/Personal-Portfolio/
 
 ## About Me
 
