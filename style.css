@@ -474,6 +474,12 @@ article .icon {
     height: 70vh;
 }
 
+@supports (-moz-appearance: none) {
+    #contact {
+        height: 200vh; /* Set a different height specifically for Firefox */
+    }
+}
+
 .contact-info-upper-container {
     display: flex;
     justify-content: center;
