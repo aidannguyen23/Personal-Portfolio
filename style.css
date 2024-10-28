@@ -288,7 +288,7 @@ section {
 /* ABOUT SECTION */
 
 .text-container {
-    width: 50%;
+    /* width: 50%; */
 }
 
 #about {
@@ -334,6 +334,22 @@ section {
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: #1e30ff;
     text-align: center;
+}
+
+.details-container-education {
+    padding: 1.5rem;
+    flex: 1;
+    background: #fefed8;
+    border-radius: 2rem;
+    border: rgb(53, 53, 53) 0.1rem solid;
+    border-color: #1e30ff;
+    text-align: center;
+    width: 50%;       /* Adjusts to screen size */
+    max-width: 600px; /* Limits to 600px on larger screens */
+    margin: 0 auto;   /* Centers the container */
+    margin-top: 1rem;
+    margin-left: 0;    /* Moves container to the left */
+
 }
 
 .section-container {
@@ -433,7 +449,7 @@ article .icon {
 }
 
 .project-img {
-    border-radius: 2rem;
+    border-radius: 0rem;
     width: 90%; /* change to 90% when adding more projects */
     height: 90%; /* change to 90% when adding more projects */
 }
