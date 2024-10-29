@@ -168,7 +168,7 @@ a:hover {
 
 section {
     padding-top: 4vh;
-    height: 96vh;
+    min-height: 96vh;
     margin: 0 10rem;
     box-sizing: border-box;
     min-height: fit-content;
@@ -293,6 +293,8 @@ section {
 
 #about {
     position: relative;
+    height: 96vh;
+
 }
 
 #about h3 {
@@ -473,12 +475,12 @@ article .icon {
     flex-direction: column;
     height: 70vh;
 }
-
+/* 
 @supports (-moz-appearance: none) {
     #contact {
-        height: 200vh; /* Set a different height specifically for Firefox */
+        height: 200vh; 
     }
-}
+} */
 
 .contact-info-upper-container {
     display: flex;
