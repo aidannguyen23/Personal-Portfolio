@@ -365,6 +365,17 @@ section {
     margin: auto 0;
 }
 
+#about .about-details-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#about .text-container {
+  max-width: 700px;  /* prevents stretching too wide */
+  text-align: left;  /* ensure left-aligned text */
+}
+
+
 /* EXPERIENCE SECTION */
 
 #experience {
