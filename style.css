@@ -319,8 +319,15 @@ section {
 }
 
 .about-pic {
-    border-radius: 2rem;
+  display: block;              /* allows centering with margin auto */
+  margin: 0 auto;              /* centers the image horizontally */
+  width: 250px;                /* adjust to control visible size */
+  height: 300px;               /* make it a square for nice cropping */
+  object-fit: cover;           /* crops instead of stretching */
+  object-position: center;     /* keeps the crop centered */
+  border-radius: 10px;          /* optional: circular crop */
 }
+
 
 .arrow {
     position: absolute;
