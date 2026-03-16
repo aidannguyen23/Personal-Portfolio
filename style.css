@@ -386,7 +386,8 @@ img { max-width: 100%; display: block; }
   height: 24px;
   width: auto;
   display: block;
-  max-width: max-content;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .meta-val {
