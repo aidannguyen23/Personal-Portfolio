@@ -388,6 +388,7 @@ img { max-width: 100%; display: block; }
   display: block;
   max-width: 100%;
   object-fit: contain;
+  object-position: left;
 }
 
 .meta-val {
