@@ -1,8 +1,152 @@
+/* ==============================================
+   SCROLL REVEAL (subpages)
+   ============================================== */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
 
-/* Whenever we click menu or icon element, adds or removes open class */
-function toggleMenu() {
-    const menu = document.querySelector(".menu-links"); /* targetting <div class="menu-links"> */
-    const icon = document.querySelector(".hamburger-icon"); 
-    menu.classList.toggle("open");
-    icon.classList.toggle("open");
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ==============================================
+   BABA SCROLLBAR
+   ============================================== */
+(function () {
+  // Don't show on map page (no scroll)
+  if (document.body.classList.contains('map-page')) return;
+
+  const track = document.createElement('div');
+  track.id = 'baba-scrollbar';
+  const baba = document.createElement('img');
+  baba.id = 'baba-scroller';
+  baba.src = './assets/baba/baba_down.webp';
+  baba.alt = 'baba';
+  track.appendChild(baba);
+  document.body.appendChild(track);
+
+  let lastY = window.scrollY;
+  let dragging = false;
+  let dragStartMouseY = 0;
+  let dragStartScrollY = 0;
+
+  function update() {
+    if (dragging) return;
+    const scrollY = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = maxScroll > 0 ? scrollY / maxScroll : 0;
+    const topPx = pct * (window.innerHeight - 28);
+    baba.style.top = topPx + 'px';
+    baba.src = scrollY < lastY
+      ? './assets/baba/baba_up.webp'
+      : './assets/baba/baba_down.webp';
+    lastY = scrollY;
+  }
+
+  baba.style.cursor = 'grab';
+  baba.style.pointerEvents = 'auto';
+
+  baba.addEventListener('pointerdown', e => {
+    dragging = true;
+    dragStartMouseY = e.clientY;
+    dragStartScrollY = window.scrollY;
+    baba.style.cursor = 'grabbing';
+    baba.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+
+  baba.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const trackHeight = window.innerHeight - 28;
+    const delta = e.clientY - dragStartMouseY;
+    const scrollDelta = (delta / trackHeight) * maxScroll;
+    const newScroll = Math.max(0, Math.min(maxScroll, dragStartScrollY + scrollDelta));
+    window.scrollTo(0, newScroll);
+    const pct = maxScroll > 0 ? newScroll / maxScroll : 0;
+    baba.style.top = (pct * trackHeight) + 'px';
+    baba.src = scrollDelta < 0
+      ? './assets/baba/baba_up.webp'
+      : './assets/baba/baba_down.webp';
+  });
+
+  baba.addEventListener('pointerup', () => {
+    dragging = false;
+    baba.style.cursor = 'grab';
+    lastY = window.scrollY;
+  });
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+/* ==============================================
+   COPY EMAIL
+   ============================================== */
+function copyEmail() {
+  navigator.clipboard.writeText('aidannguyen27@g.ucla.edu').then(() => {
+    const val = document.getElementById('email-val');
+    const arrow = document.getElementById('email-arrow');
+    if (!val) return;
+    val.textContent = 'copied!';
+    arrow.textContent = '✓';
+    setTimeout(() => {
+      val.textContent = 'aidannguyen27@g.ucla.edu';
+      arrow.textContent = '→';
+    }, 2000);
+  });
+}
+
+/* ==============================================
+   DRAG MODE — add ?drag to URL to enable
+   Drag labels to position them, then check console
+   for final coordinates. Remove ?drag when done.
+   ============================================== */
+if (window.location.search.includes('drag')) {
+  document.querySelectorAll('.map-region, .map-name').forEach(el => {
+    el.style.cursor = 'grab';
+    el.addEventListener('pointerdown', e => {
+      e.preventDefault();
+      el.style.cursor = 'grabbing';
+      const container = el.parentElement;
+      const rect = container.getBoundingClientRect();
+
+      const onMove = e2 => {
+        const top = ((e2.clientY - rect.top) / rect.height * 100).toFixed(1);
+        const left = ((e2.clientX - rect.left) / rect.width * 100).toFixed(1);
+        el.style.top = top + '%';
+        el.style.left = left + '%';
+      };
+
+      const onUp = () => {
+        el.style.cursor = 'grab';
+        document.removeEventListener('pointermove', onMove);
+        document.removeEventListener('pointerup', onUp);
+        // Print final positions for all labels
+        console.clear();
+        console.log('%c=== LABEL POSITIONS ===', 'font-weight:bold;font-size:14px');
+        document.querySelectorAll('.map-region').forEach(r => {
+          const id = r.id || 'map-name';
+          console.log(`${id}: top: ${r.style.top}; left: ${r.style.left};`);
+        });
+        const name = document.querySelector('.map-name');
+        if (name) console.log(`map-name: top: ${name.style.top}; left: ${name.style.left};`);
+      };
+
+      document.addEventListener('pointermove', onMove);
+      document.addEventListener('pointerup', onUp);
+    });
+
+    // Prevent navigation while dragging
+    el.addEventListener('click', e => e.preventDefault());
+  });
+
+  // Visual indicator that drag mode is active
+  const badge = document.createElement('div');
+  badge.textContent = 'DRAG MODE — move labels, check console for coordinates';
+  badge.style.cssText = 'position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#e8547a;color:#fff;font-family:monospace;font-size:12px;padding:8px 16px;z-index:999;pointer-events:none;';
+  document.body.appendChild(badge);
 }

@@ -1,0 +1,16 @@
+{
+  "name": "babaportfolio",
+  "version": "1.0.0",
+  "description": "Hello! 👋 I'm Aidan Nguyen, and this repository contains the code for my personal portfolio website that you can visit at:",
+  "main": "script.js",
+  "scripts": {
+    "screenshot": "node screenshot.js",
+    "serve": "npx serve . -l 8080"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.39.1"
+  }
+}

@@ -1,134 +1,107 @@
-/* ===== 1400px: Large desktop adjustments ===== */
-@media screen and (max-width: 1400px) {
-  #profile {
-    margin-bottom: 4rem;
-  }
-  #contact,
-  #projects {
-    height: fit-content;
-  }
-}
-
-/* ===== 900px: Tablet breakpoint ===== */
-@media screen and (max-width: 900px) {
-  #desktop-nav {
-    display: none;
-  }
-  #hamburger-nav {
-    display: flex;
-  }
-
-  #profile {
-    flex-direction: column;
-    align-items: center;
-    min-height: auto;
-    padding-top: 2rem;
-    gap: 2rem;
-  }
-
-  .section__pic-container {
-    width: 260px;
-    height: 260px;
-    margin: 0 auto;
-  }
-
-  .section__text {
-    text-align: center;
-  }
-
-  .section-container {
-    flex-direction: column;
-    height: fit-content;
-  }
-
-  .about-pic {
-    width: 200px;
-    height: 240px;
-  }
-
-  #about {
-    height: auto;
-  }
-
-  .arrow {
-    display: none;
-  }
-
-  /* Grid: 2 columns on tablet */
+/* ============================================
+   TABLET — ≤1024px
+   ============================================ */
+@media screen and (max-width: 1024px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .experience-sub-title {
-    font-size: 1.4rem;
+  .tile-featured {
+    grid-column: span 2;
   }
+
+
+  /* Contact — scale down slightly */
+  .contact-val { font-size: 1.3rem; }
+  .contact-hero { padding: 2.5rem 0 3rem; }
+
+  /* About — slightly smaller photo */
+  .about-photo { width: 170px; height: 170px; }
+  .about-name-img { margin-left: calc(170px + 3rem); }
 }
 
-/* ===== 600px: Mobile ===== */
-@media screen and (max-width: 600px) {
-  nav {
-    padding: 0 1.25rem;
-  }
+/* ============================================
+   MOBILE — ≤768px
+   ============================================ */
+@media screen and (max-width: 768px) {
 
-  section {
+  /* Map */
+  .map-viewport { align-items: center; }
+  .map-name .baba-text { height: 28px; }
+  .map-region .baba-text { height: 24px; }
+
+  /* Subpages */
+  .subpage {
+    padding: 1.5rem;
     padding-top: 2rem;
   }
 
-  .logo {
-    font-size: 1.5rem;
+  .subpage-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
-  .section__pic-container {
-    width: auto;
-    height: 44vw;
-    max-height: 240px;
-    justify-content: center;
-  }
+  .subpage-header .baba-text { height: 32px; }
+  .back-link .baba-text { height: 22px; }
 
-  /* Grid: 1 column on mobile */
+  /* Projects */
   .projects-grid {
     grid-template-columns: 1fr;
   }
 
-  .experience-sub-title {
-    font-size: 1.2rem;
+  .tile-featured {
+    grid-column: span 1;
   }
 
-  .nav-links {
+  /* About — stack photo above bio */
+  .about-layout {
     flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
+    align-items: flex-start;
+    gap: 1.5rem;
   }
 
-  .contact-info-container {
-    margin: 0;
+  .about-photo {
+    width: 140px;
+    height: 140px;
   }
 
-  .contact-info-container p,
-  .nav-links li a {
-    font-size: 1rem;
+  .about-name-img {
+    margin-left: 0;
   }
 
-  article {
-    font-size: 0.95rem;
+  /* Contact */
+  .contact-val { font-size: 1.1rem; }
+  .contact-hero { padding: 1.5rem 0 2rem; }
+  .contact-heading { height: 36px; }
+  .contact-item { padding: 1.5rem 0; }
+  .contact-arrow { font-size: 1.5rem; }
+
+  /* Resume */
+  .resume-embed { height: 60vh; }
+}
+
+/* ============================================
+   SMALL MOBILE — ≤480px
+   ============================================ */
+@media screen and (max-width: 480px) {
+
+  .subpage {
+    padding: 1rem;
+    padding-top: 1.5rem;
   }
 
-  #contact,
-  footer {
-    height: auto;
-    min-height: 0;
-  }
+  /* About */
+  .about-photo { width: 110px; height: 110px; }
+  .about-bio { font-size: 0.9rem; }
 
-  footer nav {
-    height: fit-content;
-    margin-bottom: 1.5rem;
-  }
+  /* Contact — prevent email overflow */
+  .contact-val { font-size: 0.85rem; }
+  .contact-hero { padding: 1rem 0 1.5rem; }
+  .contact-heading { height: 28px; }
+  .contact-item { padding: 1.25rem 0; }
 
-  .text-container {
-    text-align: left;
-  }
-
-  #sun {
-    display: none;
-  }
+  /* Projects */
+  .tile-name { font-size: 0.95rem; }
+  .tile-desc { font-size: 0.8rem; }
 }
