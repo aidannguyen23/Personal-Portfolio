@@ -46,8 +46,10 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     lastY = scrollY;
   }
 
-  baba.style.cursor = 'grab';
-  baba.style.pointerEvents = 'auto';
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  baba.style.cursor = isTouchDevice ? 'default' : 'grab';
+  baba.style.pointerEvents = isTouchDevice ? 'none' : 'auto';
 
   baba.addEventListener('pointerdown', e => {
     dragging = true;
