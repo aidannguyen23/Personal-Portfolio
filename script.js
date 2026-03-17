@@ -73,11 +73,16 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
       : './assets/baba/baba_down.webp';
   });
 
-  baba.addEventListener('pointerup', () => {
+  function endDrag() {
+    if (!dragging) return;
     dragging = false;
     baba.style.cursor = 'grab';
     lastY = window.scrollY;
-  });
+  }
+
+  baba.addEventListener('pointerup', endDrag);
+  baba.addEventListener('pointercancel', endDrag);
+  document.addEventListener('pointerup', endDrag);
 
   window.addEventListener('scroll', update, { passive: true });
   update();
@@ -143,6 +148,7 @@ if (window.location.search.includes('drag')) {
     // Prevent navigation while dragging
     el.addEventListener('click', e => e.preventDefault());
   });
+
 
   // Visual indicator that drag mode is active
   const badge = document.createElement('div');

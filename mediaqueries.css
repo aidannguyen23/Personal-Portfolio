@@ -27,8 +27,14 @@
 
   /* Map */
   .map-viewport { align-items: center; }
-  .map-name .baba-text { height: 28px; }
-  .map-region .baba-text { height: 24px; }
+  .map-name .baba-text { height: 22px; }
+  .map-region .baba-text { height: 18px; }
+
+  /* Mobile label repositioning */
+  #region-why {
+    top: 81.9% !important;
+    left: 76.2% !important;
+  }
 
   /* Subpages */
   .subpage {
@@ -67,7 +73,7 @@
   }
 
   .about-name-img {
-    margin-left: 0;
+    margin-left: 1rem;
   }
 
   /* Contact */
@@ -77,8 +83,6 @@
   .contact-item { padding: 1.5rem 0; }
   .contact-arrow { font-size: 1.5rem; }
 
-  /* Resume */
-  .resume-embed { height: 60vh; }
 }
 
 /* ============================================
