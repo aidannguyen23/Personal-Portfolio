@@ -176,6 +176,6 @@ Flags go **immediately after `=t`**, before tile names. See `robot-is-chill.md` 
 ```bash
 # When user asks to deploy:
 # 1. Push to GitHub (aidannguyen23 account)
-# 2. Vercel auto-deploys from GitHub
+# 2. Netlify auto-deploys from GitHub
 # Never push unless explicitly asked.
 ```

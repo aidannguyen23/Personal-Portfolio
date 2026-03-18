@@ -366,8 +366,16 @@ img { max-width: 100%; display: block; }
   align-items: flex-start;
 }
 
+.about-header-titles {
+  position: relative;
+  flex: 1;
+}
+
 .about-name-img {
-  margin-left: calc(160px + 3rem);
+  position: absolute;
+  left: calc(200px + 3rem);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .about-right {
