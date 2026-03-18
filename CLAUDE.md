@@ -107,7 +107,7 @@ All subpages: `<main class="subpage"> > <div class="subpage-content">`. Max-widt
 - `contact-val` font size scales: `1.6rem` → `1.3rem` → `1.1rem` → `0.85rem` across breakpoints
 
 ### Resume Page
-- Download button appears **above** the embedded PDF
+- Download button appears **below** the view resume PDF button
 - PDF: `./assets/Aidan_Nguyen_resume.pdf`
 
 ---
@@ -118,10 +118,7 @@ All subpages: `<main class="subpage"> > <div class="subpage-content">`. Max-widt
 --bg: #0d0d0d  --surface: #111111  --tile: #1a1f2e  --border: #2a3040
 --pink: #e8547a  --gold: #c8a84b  --olive: #6b7c3a  --blue: #4a6fa5
 --text: #f0f0e8  --muted: #888880
-```
-
-**Never use**: `#fefed8`, `#f8e1fe`, `#fdff9e`, `#1e30ff`
-
+``` 
 ---
 
 ## Typography

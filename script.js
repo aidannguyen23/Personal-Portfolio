@@ -19,12 +19,21 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   // Don't show on map page (no scroll)
   if (document.body.classList.contains('map-page')) return;
 
+  // Per-page scrollbar character
+  const page = location.pathname.split('/').pop().replace('.html', '') || 'index';
+  const charMap = { about: 'jiji', contact: 'me', resume: 'quiqui', why: 'baba', projects: 'keke' };
+  const char = charMap[page] || 'baba';
+  // Baba sprites face the expected direction; other characters are flipped
+  const flip = char !== 'baba';
+  const charUp = `./assets/baba/${char}_${flip ? 'down' : 'up'}.webp`;
+  const charDown = `./assets/baba/${char}_${flip ? 'up' : 'down'}.webp`;
+
   const track = document.createElement('div');
   track.id = 'baba-scrollbar';
   const baba = document.createElement('img');
   baba.id = 'baba-scroller';
-  baba.src = './assets/baba/baba_down.webp';
-  baba.alt = 'baba';
+  baba.src = charUp;
+  baba.alt = char;
   track.appendChild(baba);
   document.body.appendChild(track);
 
@@ -41,8 +50,8 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     const topPx = pct * (window.innerHeight - 28);
     baba.style.top = topPx + 'px';
     baba.src = scrollY < lastY
-      ? './assets/baba/baba_up.webp'
-      : './assets/baba/baba_down.webp';
+      ? charDown
+      : charUp;
     lastY = scrollY;
   }
 
@@ -71,8 +80,8 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     const pct = maxScroll > 0 ? newScroll / maxScroll : 0;
     baba.style.top = (pct * trackHeight) + 'px';
     baba.src = scrollDelta < 0
-      ? './assets/baba/baba_up.webp'
-      : './assets/baba/baba_down.webp';
+      ? charDown
+      : charUp;
   });
 
   function endDrag() {
@@ -106,6 +115,24 @@ function copyEmail() {
     }, 2000);
   });
 }
+
+/* ==============================================
+   PROJECT FILTERS
+   ============================================== */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.project-tile').forEach(tile => {
+      if (filter === 'all' || tile.dataset.category.split(' ').includes(filter)) {
+        tile.classList.remove('hidden');
+      } else {
+        tile.classList.add('hidden');
+      }
+    });
+  });
+});
 
 /* ==============================================
    DRAG MODE — add ?drag to URL to enable

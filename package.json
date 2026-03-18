@@ -1,7 +1,7 @@
 {
   "name": "babaportfolio",
   "version": "1.0.0",
-  "description": "Hello! 👋 I'm Aidan Nguyen, and this repository contains the code for my personal portfolio website that you can visit at:",
+  "description": "Hello! I'm Aidan Nguyen, and this repository contains the code for my personal portfolio website that you can visit at:",
   "main": "script.js",
   "scripts": {
     "screenshot": "node screenshot.js",

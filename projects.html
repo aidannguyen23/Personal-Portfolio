@@ -17,16 +17,27 @@
     <div class="subpage-content">
 
       <header class="subpage-header reveal">
-        <img src="./assets/baba/projects.webp" alt="PROJECTS" class="baba-text" />
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <img src="./assets/baba/projects.webp" alt="PROJECTS" class="baba-text" />
+          <img src="./assets/baba/keke.webp" alt="" class="baba-text page-mascot" />
+        </div>
         <a href="index.html" class="back-link">
           <img src="./assets/baba/map_is_back.webp" alt="MAP IS BACK" class="baba-text" />
         </a>
       </header>
 
+      <div class="project-filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="analytics">Data Analytics</button>
+        <button class="filter-btn" data-filter="ml">Machine Learning</button>
+        <button class="filter-btn" data-filter="engineering">Data Engineering</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+      </div>
+
       <div class="projects-grid">
 
         <!-- Kickback (Featured) -->
-        <article class="project-tile tile-featured reveal" style="--img: url('./assets/kickback.jpg')">
+        <article class="project-tile tile-featured reveal" data-category="analytics" style="--img: url('./assets/kickback.jpg')">
           <div class="tile-tags">
             <span class="tile-tag">Data Consulting</span>
             <span class="tile-tag">A/B Testing</span>
@@ -41,7 +52,7 @@
         </article>
 
         <!-- Savills -->
-        <article class="project-tile reveal" style="--img: url('./assets/datafest.JPG')">
+        <article class="project-tile reveal" data-category="analytics" style="--img: url('./assets/datafest.JPG')">
           <div class="tile-tags">
             <span class="tile-tag">DataFest 2025</span>
             <span class="tile-tag">Finalist</span>
@@ -56,7 +67,7 @@
         </article>
 
         <!-- Zeitios -->
-        <article class="project-tile reveal" style="--img: url('./assets/zeitios.webp')">
+        <article class="project-tile reveal" data-category="ai" style="--img: url('./assets/zeitios.webp')">
           <div class="tile-tags">
             <span class="tile-tag">AI</span>
             <span class="tile-tag">Fullstack</span>
@@ -71,7 +82,7 @@
         </article>
 
         <!-- RNA Seq -->
-        <article class="project-tile reveal" style="--img: url('./assets/research.png')">
+        <article class="project-tile reveal" data-category="ml" style="--img: url('./assets/research.png')">
           <div class="tile-tags">
             <span class="tile-tag">Research</span>
             <span class="tile-tag">ML</span>
@@ -86,7 +97,7 @@
         </article>
 
         <!-- Occupancy Watch -->
-        <article class="project-tile reveal" style="--img: url('./assets/occupancy.png')">
+        <article class="project-tile reveal" data-category="ml" style="--img: url('./assets/occupancy.png')">
           <div class="tile-tags">
             <span class="tile-tag">Computer Vision</span>
             <span class="tile-tag">YOLO</span>
@@ -101,7 +112,7 @@
         </article>
 
         <!-- SWARM Engineering -->
-        <article class="project-tile reveal" style="--img: url('./assets/swarm engineering.png')">
+        <article class="project-tile reveal" data-category="ml analytics" style="--img: url('./assets/swarm engineering.png')">
           <div class="tile-tags">
             <span class="tile-tag">Optimization</span>
             <span class="tile-tag">Engineering</span>
@@ -116,7 +127,7 @@
         </article>
 
         <!-- Improper Etiquette -->
-        <article class="project-tile reveal" style="--img: url('./assets/improper.png')">
+        <article class="project-tile reveal" data-category="analytics" style="--img: url('./assets/improper.png')">
           <div class="tile-tags">
             <span class="tile-tag">Data Consulting</span>
           </div>
@@ -131,7 +142,7 @@
         </article>
 
         <!-- CourseKata -->
-        <article class="project-tile reveal" style="--img: url('./assets/coursekata.jpg')">
+        <article class="project-tile reveal" data-category="analytics" style="--img: url('./assets/coursekata.jpg')">
           <div class="tile-tags">
             <span class="tile-tag">DataFest 2024</span>
             <span class="tile-tag">Finalist</span>
@@ -146,7 +157,7 @@
         </article>
 
         <!-- YouTube Success Metrics -->
-        <article class="project-tile reveal" style="--img: url('./assets/youtube article logo.webp')">
+        <article class="project-tile reveal" data-category="analytics ml" style="--img: url('./assets/youtube article logo.webp')">
           <div class="tile-tags">
             <span class="tile-tag">Data Journalism</span>
             <span class="tile-tag">ML</span>
@@ -162,7 +173,7 @@
         </article>
 
         <!-- AWS Covid Analysis -->
-        <article class="project-tile reveal" style="--img: url('./assets/project-3.png')">
+        <article class="project-tile reveal" data-category="engineering" style="--img: url('./assets/project-3.png')">
           <div class="tile-tags">
             <span class="tile-tag">Data Engineering</span>
             <span class="tile-tag">AWS</span>
@@ -177,7 +188,7 @@
         </article>
 
         <!-- Galaxy Classification -->
-        <article class="project-tile reveal" style="--img: url('./assets/project-1.png')">
+        <article class="project-tile reveal" data-category="ml" style="--img: url('./assets/project-1.png')">
           <div class="tile-tags">
             <span class="tile-tag">ML</span>
             <span class="tile-tag">Research</span>
@@ -193,7 +204,7 @@
         </article>
 
         <!-- City Comparison Dashboard -->
-        <article class="project-tile reveal" style="--img: url('./assets/tableau_city.png')">
+        <article class="project-tile reveal" data-category="analytics" style="--img: url('./assets/tableau_city.png')">
           <div class="tile-tags">
             <span class="tile-tag">Data Visualization</span>
             <span class="tile-tag">Tableau</span>
