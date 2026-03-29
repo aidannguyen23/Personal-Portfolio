@@ -155,8 +155,26 @@ document.addEventListener('click', () => {
    for final coordinates. Remove ?drag when done.
    ============================================== */
 if (window.location.search.includes('drag')) {
+  function logAll() {
+    console.clear();
+    console.log('%c=== LABEL POSITIONS + SIZES ===', 'font-weight:bold;font-size:14px');
+    document.querySelectorAll('.map-region').forEach(r => {
+      const img = r.querySelector('.baba-text');
+      const h = img ? Math.round(parseFloat(img.style.height || getComputedStyle(img).height)) : '?';
+      console.log(`${r.id}: top: ${r.style.top}; left: ${r.style.left}; height: ${h}px`);
+    });
+    const name = document.querySelector('.map-name');
+    if (name) {
+      const img = name.querySelector('.baba-text');
+      const h = img ? Math.round(parseFloat(img.style.height || getComputedStyle(img).height)) : '?';
+      console.log(`map-name: top: ${name.style.top}; left: ${name.style.left}; height: ${h}px`);
+    }
+  }
+
   document.querySelectorAll('.map-region, .map-name').forEach(el => {
     el.style.cursor = 'grab';
+
+    // Drag to reposition
     el.addEventListener('pointerdown', e => {
       e.preventDefault();
       el.style.cursor = 'grabbing';
@@ -174,29 +192,32 @@ if (window.location.search.includes('drag')) {
         el.style.cursor = 'grab';
         document.removeEventListener('pointermove', onMove);
         document.removeEventListener('pointerup', onUp);
-        // Print final positions for all labels
-        console.clear();
-        console.log('%c=== LABEL POSITIONS ===', 'font-weight:bold;font-size:14px');
-        document.querySelectorAll('.map-region').forEach(r => {
-          const id = r.id || 'map-name';
-          console.log(`${id}: top: ${r.style.top}; left: ${r.style.left};`);
-        });
-        const name = document.querySelector('.map-name');
-        if (name) console.log(`map-name: top: ${name.style.top}; left: ${name.style.left};`);
+        logAll();
       };
 
       document.addEventListener('pointermove', onMove);
       document.addEventListener('pointerup', onUp);
     });
 
+    // Scroll wheel to resize
+    el.addEventListener('wheel', e => {
+      e.preventDefault();
+      const img = el.querySelector('.baba-text');
+      if (!img) return;
+      const current = parseFloat(img.style.height || getComputedStyle(img).height);
+      const delta = e.deltaY < 0 ? 2 : -2;
+      const next = Math.max(10, Math.round(current + delta));
+      img.style.height = next + 'px';
+      logAll();
+    }, { passive: false });
+
     // Prevent navigation while dragging
     el.addEventListener('click', e => e.preventDefault());
   });
 
-
   // Visual indicator that drag mode is active
   const badge = document.createElement('div');
-  badge.textContent = 'DRAG MODE — move labels, check console for coordinates';
+  badge.textContent = 'DRAG MODE — drag to move · scroll wheel to resize · check console for values';
   badge.style.cssText = 'position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#e8547a;color:#fff;font-family:monospace;font-size:12px;padding:8px 16px;z-index:999;pointer-events:none;';
   document.body.appendChild(badge);
 }

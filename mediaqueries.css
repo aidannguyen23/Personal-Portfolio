@@ -1,4 +1,35 @@
 /* ============================================
+   LARGE DESKTOP — ≥1920px
+   ============================================ */
+@media screen and (min-width: 1680px) and (max-width: 1919px) {
+  .map-name .baba-text   { height: 69px; }
+  .map-region .baba-text { height: 56px; }
+}
+
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
+  .map-name .baba-text   { height: 67px; }
+  .map-region .baba-text { height: 54px; }
+}
+
+@media screen and (min-width: 2560px) and (max-width: 3839px) {
+  .map-name .baba-text   { height: 94px; }
+  .map-region .baba-text { height: 76px; }
+}
+
+@media screen and (min-width: 3840px) {
+  .map-name .baba-text   { height: 118px; }
+  .map-region .baba-text { height: 107px; }
+}
+
+/* ============================================
+   TABLET LANDSCAPE / IPAD PRO — 769px–1024px
+   ============================================ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .map-name .baba-text   { height: 46px; }
+  .map-region .baba-text { height: 37px; }
+}
+
+/* ============================================
    TABLET — ≤1024px
    ============================================ */
 @media screen and (max-width: 1024px) {
@@ -21,14 +52,22 @@
 }
 
 /* ============================================
+   TABLET PORTRAIT — 501px–768px (e.g. iPad)
+   ============================================ */
+@media screen and (min-width: 501px) and (max-width: 768px) {
+  .map-name .baba-text   { height: 35px; }
+  .map-region .baba-text { height: 28px; }
+}
+
+/* ============================================
    MOBILE — ≤768px
    ============================================ */
 @media screen and (max-width: 768px) {
 
   /* Map */
   .map-viewport { align-items: center; }
-  .map-name .baba-text { height: 22px; }
-  .map-region .baba-text { height: 18px; }
+  .map-name .baba-text { height: 20px; }
+  .map-region .baba-text { height: 16px; }
 
   /* Mobile label repositioning */
   #region-why {
@@ -89,6 +128,14 @@
   .contact-item { padding: 1.5rem 0; }
   .contact-arrow { font-size: 1.5rem; }
 
+}
+
+/* ============================================
+   SMALL MOBILE — ≤376px (iPhone SE etc.)
+   ============================================ */
+@media screen and (max-width: 376px) {
+  .map-name .baba-text   { height: 17px; }
+  .map-region .baba-text { height: 14px; }
 }
 
 /* ============================================
