@@ -254,7 +254,7 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--border);
   padding: 1.5rem;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   transition: border-color 0.3s ease;
 }
 
@@ -301,6 +301,57 @@ img { max-width: 100%; display: block; }
   color: var(--muted);
   line-height: 1.5;
   margin-bottom: 1rem;
+}
+
+.tile-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--muted);
+  border-radius: 50%;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  cursor: help;
+  position: relative;
+  vertical-align: middle;
+  margin-left: 4px;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.tile-info:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.tile-info::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.5;
+  padding: 8px 12px;
+  width: 260px;
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 10;
+}
+
+.tile-info:hover::after,
+.tile-info.active::after {
+  opacity: 1;
 }
 
 .tile-links {
@@ -354,6 +405,35 @@ img { max-width: 100%; display: block; }
 }
 
 .project-tile[style*="--img"] > *:last-child {
+  padding-bottom: 1.5rem;
+}
+
+/* Project tile with video */
+.tile-video {
+  background: var(--tile);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tile-video-el {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.tile-video > *:not(.tile-video-el) {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.tile-video > .tile-tags {
+  padding-top: 1.25rem;
+}
+
+.tile-video > *:last-child {
   padding-bottom: 1.5rem;
 }
 

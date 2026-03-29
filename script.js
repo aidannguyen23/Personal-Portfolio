@@ -135,6 +135,21 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 /* ==============================================
+   INFO TOOLTIPS — tap to toggle on mobile
+   ============================================== */
+document.querySelectorAll('.tile-info').forEach(info => {
+  info.addEventListener('click', e => {
+    e.stopPropagation();
+    const wasActive = info.classList.contains('active');
+    document.querySelectorAll('.tile-info.active').forEach(i => i.classList.remove('active'));
+    if (!wasActive) info.classList.add('active');
+  });
+});
+document.addEventListener('click', () => {
+  document.querySelectorAll('.tile-info.active').forEach(i => i.classList.remove('active'));
+});
+
+/* ==============================================
    DRAG MODE — add ?drag to URL to enable
    Drag labels to position them, then check console
    for final coordinates. Remove ?drag when done.
