@@ -331,8 +331,8 @@ img { max-width: 100%; display: block; }
   content: attr(data-tooltip);
   position: absolute;
   bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
+  left: var(--tt-left, 50%);
+  transform: var(--tt-tx, translateX(-50%));
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);

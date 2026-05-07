@@ -137,12 +137,33 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 /* ==============================================
    INFO TOOLTIPS — tap to toggle on mobile
    ============================================== */
+function positionTooltip(info) {
+  const rect = info.getBoundingClientRect();
+  const tooltipWidth = 260;
+  const vw = window.innerWidth;
+  const pad = 8;
+  let tooltipLeft = rect.width / 2 - tooltipWidth / 2;
+  const viewportLeft = rect.left + tooltipLeft;
+  const viewportRight = viewportLeft + tooltipWidth;
+  if (viewportLeft < pad) {
+    tooltipLeft += pad - viewportLeft;
+  } else if (viewportRight > vw - pad) {
+    tooltipLeft -= viewportRight - (vw - pad);
+  }
+  info.style.setProperty('--tt-left', `${tooltipLeft}px`);
+  info.style.setProperty('--tt-tx', 'translateX(0)');
+}
+
 document.querySelectorAll('.tile-info').forEach(info => {
+  info.addEventListener('mouseenter', () => positionTooltip(info));
   info.addEventListener('click', e => {
     e.stopPropagation();
     const wasActive = info.classList.contains('active');
     document.querySelectorAll('.tile-info.active').forEach(i => i.classList.remove('active'));
-    if (!wasActive) info.classList.add('active');
+    if (!wasActive) {
+      positionTooltip(info);
+      info.classList.add('active');
+    }
   });
 });
 document.addEventListener('click', () => {
